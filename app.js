@@ -6,6 +6,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public')); // to render static files like styles.css and images
 
 
+//  API KEY and List ID not shown
+
 app.get('/',function(req,res){
 
     console.log('Sending File'); 
@@ -36,12 +38,12 @@ app.post('/',function(req,res){
 
     const jsonData = JSON.stringify(data);
 
-    const url = 'https://us7.api.mailchimp.com/3.0/lists/e3a77659d1';
+    const url = 'https://us7.api.mailchimp.com/3.0/lists/{list_id}';
 
     //extra options to make different type of requests
     const options = {
         method : "POST",
-        auth : 'KAKA:aa1a209a5c2a0a6ae2dd7d20a0626a55-us7'
+        auth : 'KAKA:{api_key}'
     }
 
     // A type of request initialized (in this case it is a post request bcoz set in options)
@@ -73,7 +75,3 @@ app.listen(process.env.PORT || 3000,function(){
     console.log("Server Started on 3000");
 });
 
-// api key
-// aa1a209a5c2a0a6ae2dd7d20a0626a55-us7
-//list id
-//e3a77659d1
