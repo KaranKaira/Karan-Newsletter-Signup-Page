@@ -41,6 +41,7 @@ app.post('/',function(req,res){
     const url = 'https://us7.api.mailchimp.com/3.0/lists/{list_id}';
 
     //extra options to make different type of requests
+
     const options = {
         method : "POST",
         auth : 'KAKA:{api_key}'
@@ -60,6 +61,8 @@ app.post('/',function(req,res){
             var responseData = JSON.parse(data);
             console.log(responseData);
         });
+        
+
     });
 
     request.write(jsonData);
@@ -67,11 +70,11 @@ app.post('/',function(req,res){
 });
 
 
-app.get('/failure' , function(req,res){
+app.post('/failure' , function(req,res){
     res.redirect('/');
 });
 
-app.listen(process.env.PORT || 3000,function(){
+app.listen( process.env.PORT || 3000,function(){
     console.log("Server Started on 3000");
 });
 
